@@ -1,0 +1,7 @@
+while true; do
+  ffmpeg -re -stream_loop -1 -f concat -safe 0 -i playlist.txt \
+    -c:v libx264 -preset veryfast -b:v 2500k \
+    -c:a aac -b:a 128k \
+    -f flv rtmp://localhost/live/stream
+  sleep 1
+done
