@@ -1,0 +1,1 @@
+for f in *.mp4; do ffmpeg -i "$f" -c:v libx264 -preset veryfast -b:v 2500k -vf "scale=1920:1080,fps=30,format=yuv420p" -c:a aac -b:a 128k -movflags +faststart "normalized_$f"; done
